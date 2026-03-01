@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Forever ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    overflow-x: hidden;
+    color: #333;
+    text-align: center;
+}
+
+section {
+    min-height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.active {
+    display: flex;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 700px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #ff4e88;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff1e6b;
+    transform: scale(1.05);
+}
+
+select, textarea {
+    padding: 10px;
+    width: 80%;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.heart {
+    position: fixed;
+    top: -10px;
+    color: red;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
+}
+
+.fade {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+.big-love {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff1e6b;
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<!-- PAGE 1 -->
+<section id="page1" class="active fade">
+<div class="card">
+<h1>✨ Happy New Month My Love ✨</h1>
+
+<p>
+My love, as this new month begins, I pray deeply for you from the bottom of my heart.
+May this month open doors you never expected.
+May Allah surround you with protection, elevate your name, bless your hustle,
+grant you financial increase, divine favor and unstoppable success.
+</p>
+
+<p>
+May every stress turn into testimony.
+May every delay turn into celebration.
+May you never know shame.
+May you never lack peace.
+May you grow in wisdom, strength and confidence.
+</p>
+
+<p>
+And for us… 🤍  
+May our love grow softer, deeper, stronger and more intentional.
+May misunderstandings never divide us.
+May loyalty never depart from us.
+May we always choose each other — over pride, over anger, over ego.
+</p>
+
+<p class="big-love">
+I thank Allah for bringing you into my life.
+You are my answered prayer.
+</p>
+
+<button onclick="nextPage(2)">Continue My Love ❤️</button>
+</div>
+</section>
+
+<!-- PAGE 2 -->
+<section id="page2">
+<div class="card fade">
+<h2>Be Honest With Me 😌</h2>
+
+<p>How many percent do you love me?</p>
+<select id="percent">
+<option>50%</option>
+<option>75%</option>
+<option>100%</option>
+<option>Infinity ♾️</option>
+</select>
+
+<p>Say a short prayer for our relationship 🤍</p>
+<textarea id="prayer" rows="4"></textarea>
+
+<button onclick="submitForm()">Submit 💕</button>
+</div>
+</section>
+
+<!-- PAGE 3 -->
+<section id="page3">
+<div class="card fade">
+<h2>🎉 Happy Birthday in Advance My King 🎉</h2>
+<p id="result"></p>
+</div>
+</section>
+
+<script>
+function nextPage(page) {
+    document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+    document.getElementById("page" + page).classList.add("active");
+}
+
+function submitForm() {
+    let percent = document.getElementById("percent").value;
+    let prayer = document.getElementById("prayer").value;
+
+    nextPage(3);
+
+    if (percent.includes("Infinity")) {
+        launchHearts();
+    }
+
+    document.getElementById("result").innerHTML =
+    "You said you love me " + percent + " 🥰<br><br>" +
+    "Your prayer for us:<br><i>" + prayer + "</i><br><br>" +
+    "May your new age bring long life, prosperity, divine connection, growth and greatness. " +
+    "May everything you touch turn to favor.<br><br>" +
+    "<span class='big-love'>I love you so much ❤️</span><br><br>" +
+    "My best D ever 🫠";
+}
+
+function launchHearts() {
+    for (let i = 0; i < 40; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 5000);
+    }
+}
+</script>
+
+</body>
+</html>
